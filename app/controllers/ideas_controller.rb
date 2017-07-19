@@ -12,6 +12,10 @@ class IdeasController < ApplicationController
   def show
   end
 
+  def list_all
+    @ideas = Idea.all
+  end
+
   # GET /ideas/new
   def new
     @idea = Idea.new

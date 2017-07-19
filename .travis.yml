@@ -1,3 +1,10 @@
 language: ruby
 rvm:
 -2.4.1
+deploy:
+   provider: cloudfoundry
+   username: qileilove@gmail.com
+   password: Qilei@60636
+   api: https://api.run.pivotal.io
+   organization: qilove
+   space: development
