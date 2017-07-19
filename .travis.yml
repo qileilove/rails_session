@@ -1,10 +1,11 @@
 language: ruby
 rvm:
--2.4.1
+- 2.4.1
 deploy:
-   provider: cloudfoundry
-   username: qileilove@gmail.com
-   password: Qilei@60636
-   api: https://api.run.pivotal.io
-   organization: qilove
-   space: development
+  provider: cloudfoundry
+  username: qileilove@gmail.com
+  password:
+    secure: Qd0VG4yoMYnnQJsdG/NFBHYNctvkvNI1iUL+FM2lPSDZgHHM68ZUOCM4jmWaxH/gULlB/i7uwTY1bdrVArmUmoAOxkRptg5GhE3cC0SOAh6lvm0qSx9eb61AZ2hLBx55yipze8R2a8o2A1sqIw1bLGb1Uky5xvfB+sJequrLlE9GRrjhFZI1c6evPVI0rO/BYBbAP6S9FYNekEg1gq1a3FUIF/TVwjaBlge/c8lbgir3vvmZ2hHp9g2fbJWUBL/qJaWbzEmxJ0MOBLoFi6DzEP393kizq3oZrvb5lpWwH1Sv8TKpFSYzhmew3o7cPtWqKeqSILeXmTnXMZjv2wN3/PPQ+SW+7phaAG6UUr4bDGcCJ2waoXK4TUhu79JBsegeVVIrjzxJX/nxBknVLljDdUe7j431EhFdZFSaCkweAOwxHMuhUWiVZu57hD3pqVJmzMhokjsNo8pC1fEFFg5NoQxDSGsnxQJd/pmFvF5Z8jc4vl/YJRYq/Oe6jNqAQdjOkLprKTWTXLflUASt9Jqe9a8ojA15lnrauddSNVO/8Lv6e+bCHdL3tav0iasrfQNoxCAL06d3na1Yp3bXRXU7UY/oQSUWtnOr9z/sPHkkQTY57LEm9NY3NtQdwGiADGoDrYRy/dv9FVjaVdNRybbCnwbu4JlDbiaHB+vLapCW7t4=
+  api: https://api.run.pivotal.io
+  organization: qilove
+  space: development
