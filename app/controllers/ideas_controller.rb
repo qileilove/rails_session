@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
+#  layout "main"
 
   # GET /ideas
   # GET /ideas.json
@@ -10,10 +11,14 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @idea = Idea.find_by(id: params[:id])
   end
 
   def list_all
     @ideas = Idea.all
+    if @ideas.blank?
+      redirect_to action: :new
+    end
   end
 
   # GET /ideas/new

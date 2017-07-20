@@ -12,25 +12,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top container-fluid" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">The Idea app</a>
-
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li> <%= link_to("登入", '#') %> </li>
-          <li> <%= link_to '返回', ideas_path %></li>
-
-        </ul>
-      </div><!-- /.navbar-collapse -->
-  </nav>
+   <%= render "layouts/header" %>
       <div class="container">
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -39,11 +21,7 @@
     </div>
        </div>
         </div>
-    <footer class="navbar-fixed-bottom " style="margin-bottom: 80px;">
-      <div class="container text-center " >
-        Rails Girls 2017
-      </div>
-    </footer>
+    <%= render "layouts/footer" %>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>
     </body>
 

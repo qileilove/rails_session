@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :plans
   resources :ideas do
     get '/list', on: :collection, to: 'ideas#list_all', as: 'list'
     # get '/', on: :collection, action: :list_all
