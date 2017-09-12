@@ -1,17 +1,13 @@
-<%= form_with(model: plan, local: true) do |form| %>
-  <% if plan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
-
-      <ul>
-      <% plan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for([@idea, @idea.plans.build]) do |f| %>
+    <p>
+      <%= f.label :plan_name %><br>
+      <%= f.text_field :plan_name %>
+    </p>
+    <p>
+      <%= f.label :desc %><br>
+      <%= f.text_area :desc %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
 <% end %>

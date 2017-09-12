@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719142102) do
+ActiveRecord::Schema.define(version: 20170828030116) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ideas", force: :cascade do |t|
     t.string "name"
@@ -18,9 +30,25 @@ ActiveRecord::Schema.define(version: 20170719142102) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price", precision: 8, scale: 2, default: "0.0"
+    t.string "email"
+    t.integer "quantity", default: 1
   end
 
   create_table "plans", force: :cascade do |t|
+    t.integer "idea_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "plan_name"
+    t.string "desc"
+    t.index ["idea_id"], name: "index_plans_on_idea_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "image_url"
+    t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

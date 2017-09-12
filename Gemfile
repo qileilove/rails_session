@@ -10,8 +10,17 @@ end
 gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'carrierwave'
 gem 'pry'
+gem 'pry-byebug'
+gem 'pry-rails'
+gem 'redis'
+gem 'redis-namespace'
+gem 'sidekiq'
+gem 'sinatra' # 用于使用自带的监控页面
+gem 'mongoid', '~> 6.1.0'
+gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

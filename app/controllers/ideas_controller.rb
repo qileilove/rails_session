@@ -13,7 +13,7 @@ class IdeasController < ApplicationController
   def show
     @idea = Idea.find_by(id: params[:id])
   end
-
+# get /list
   def list_all
     @ideas = Idea.all
     if @ideas.blank?
@@ -37,6 +37,9 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.save
+
+        MailJob.perform_later @idea
+        # UserMailer.welcome_email(@idea).deliver
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json { render :show, status: :created, location: @idea }
       else
@@ -70,6 +73,15 @@ class IdeasController < ApplicationController
     end
   end
 
+  def destory_all
+     if(Idea.count>0)
+         @ideas = Idea.all.destroy_all
+         redirect_to ideas_url, notice: 'all Idea was successfully destroyed.'
+     else
+      redirect_to ideas_url, notice: 'there is no data can destory'
+     end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
@@ -78,6 +90,6 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:name, :description, :picture)
+      params.require(:idea).permit(:name, :description, :picture,:price,:email)
     end
 end

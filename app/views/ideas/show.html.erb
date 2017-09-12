@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
+<table class="table">
 
 <p>
   <strong>Name:</strong>
-  <%= @idea.name %>
+  <%= @idea.name  %>
 </p>
 
 <p>
@@ -17,7 +18,32 @@
 
 
 </p>
+<p>
+  <strong>Price:</strong>
+  <%= @idea.price if @idea.price.present? %>
+
+
+
+</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @idea.email if @idea.email.present? %>
+
+
+
+  </p>
 <p>  <%= link_to '查看高清大图', image_path(@idea.picture) %> </p>
+
+  <h2>plans</h2>
+  <%= render @idea.plans %>
+
+
+
+  <h2>Add a plan:</h2>
+  <%= render 'plans/form' %>
+
+
+</table>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

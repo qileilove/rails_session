@@ -1,32 +1,69 @@
-<%= form_with(model: idea, local: true) do |form| %>
-  <% if idea.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+<%= form_with(model: idea, local: true) do |form|  %>
+    <% if idea.errors.any? %>
+        <div id="error_explanation" class="control-label has-error">
+          <h2 class="control-label"><%= pluralize(idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
 
-      <ul>
-      <% idea.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul >
+            <% idea.errors.full_messages.each do |message| %>
+                <li class="control-label"><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+<form>
+    <div class="field form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :idea_name ,class: "form-control"  %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :idea_name %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :idea_description ,class: "form-control"%>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :idea_description %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :picture %>
+      <%= form.file_field :picture, id: :idea_picture ,class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.file_field :picture, id: :idea_picture %>
+    <div class="field form-group  ">
+      <%= form.label :price, class:"control-label"
+      %>
+      <%= form.text_field :price, id: :idea_price ,class: "form-control has-error" %>
+    </div>
+  <div class="field form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :idea_email,class: "form-control" %>
   </div>
+    <div class="actions">
+      <%= form.submit class: "btn btn-default"%>
+    </div>
+  </form>
+<% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for @idea do |idea_form| %>
+    <%= idea_form.label 'label_name' %></br>
+    name :<%= idea_form.text_field :name %> </br>
+    body:    <%= idea_form.label :body, 'Body' %> </br>
+    <%= idea_form.text_area :description %></br>
+    price: <%= idea_form.text_field(:price) %><br>
+    email: <%= idea_form.text_field(:email) %><br>
+    <%= hidden_field(:idea_form, :token) %>
+    password: <%= password_field(:login, :pass) %>
+    <br>
+    radio_button: <%= radio_button("post", "category", "rails") %>
+    <br>
+    email:<%= email_field(:user, :email) %>
+    <br>
+
+    url: <%= url_field(:user, :url) %>
+    <br>
+    <%= date_field("user", "dob", min: "2014-05-20", max: "2017-12-01") %>
+    <br>
+    <%= telephone_field("user", "phone") %>
+    <br>
+    search_filed:<%= search_field(:user, :name, autosave: false) %>
+    color:<%= color_field("car", "color") %>
+    checkbox:<%= check_box("post", "validated") %>
+    file:<%= file_field(:user, :avatar) %>
 <% end %>
