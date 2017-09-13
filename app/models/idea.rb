@@ -3,9 +3,9 @@ class Idea
   include Mongoid::Timestamps
   has_many :plans
   field :name ,type: String
+  field :description,type: String
   field :price, type: Integer
   field :picture
-  field :description,type: String
   field :email,type: String
 
   validates_presence_of :name,  message: "can't be blank"

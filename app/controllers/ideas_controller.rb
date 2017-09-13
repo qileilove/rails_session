@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = Idea.each
   end
 
   # GET /ideas/1
@@ -38,7 +38,7 @@ class IdeasController < ApplicationController
     respond_to do |format|
       if @idea.save
 
-        MailJob.perform_later @idea
+        MailJob.perform_later @idea.email
         # UserMailer.welcome_email(@idea).deliver
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json { render :show, status: :created, location: @idea }
